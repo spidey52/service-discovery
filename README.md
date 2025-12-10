@@ -11,6 +11,7 @@ A lightweight, high-performance service discovery system built with Go, MongoDB,
 - **MongoDB Storage**: Persistent storage with efficient indexing
 - **Graceful Shutdown**: Proper cleanup on termination
 - **SDKs**: Official client libraries for TypeScript and Go applications
+- **Web Dashboard**: Modern UI for monitoring active services
 
 ## Prerequisites
 
@@ -49,6 +50,19 @@ The server will start on port 4000 and display:
 ```
 Service discovery running on :4000
 ```
+
+**Access the Web Dashboard:**
+
+- Open http://localhost:4000 in your browser
+- The UI will automatically load and show registered services
+
+**Try the Demo:**
+
+```bash
+./demo.sh
+```
+
+This will start the server with sample services and heartbeats for testing the UI.
 
 ### Configuration
 
@@ -190,6 +204,22 @@ go get github.com/spidey52/service-discovery-sdk
 ```
 
 See `sdk/go/README.md` for detailed usage instructions.
+
+## Web Dashboard
+
+A modern web UI for monitoring and managing your services is included. Access it at:
+
+- **Dashboard**: http://localhost:4000 (served automatically)
+- **Direct UI**: http://localhost:4000/ui/
+
+The dashboard provides:
+
+- Real-time service monitoring with status indicators
+- Search and filter capabilities
+- Service statistics overview
+- Auto-refresh every 30 seconds
+
+See `ui/README.md` for detailed UI documentation.
 
 ## Architecture
 

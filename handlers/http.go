@@ -37,13 +37,19 @@ func SetupRoutes(r *gin.Engine, repo *repository.MongoRepo, heartbeatTTL time.Du
 			c.JSON(http.StatusNotFound, gin.H{"error": err.Error()})
 			return
 		}
+
+		go BroadcastMessage(ServiceUpdate{
+			Action:  ActionHeartbeat,
+			Service: models.Instance{ServiceName: req.ServiceName, ID: req.ID},
+		})
+
 		c.JSON(http.StatusOK, gin.H{"message": "heartbeat ok"})
 	})
 
 	r.GET("/lookup", func(c *gin.Context) {
 		service := c.Query("service")
 		mode := c.Query("mode")
-		metadata := map[string]interface{}{}
+		metadata := map[string]any{}
 		for key, vals := range c.Request.URL.Query() {
 			if key == "service" || key == "mode" {
 				continue
@@ -60,7 +66,7 @@ func SetupRoutes(r *gin.Engine, repo *repository.MongoRepo, heartbeatTTL time.Du
 }
 
 // helper to parse strings to bool/int/float if possible
-func parseString(s string) interface{} {
+func parseString(s string) any {
 	if s == "true" {
 		return true
 	}

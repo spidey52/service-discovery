@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Service Discovery Dashboard</title>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<h1>🚀 Service Discovery Dashboard</h1>
+			<p>Monitor and manage your microservices</p>
+		</header>
+
+		<div class="controls">
+			<div class="search-group">
+				<input type="text" id="searchInput" placeholder="Search services..." />
+				<select id="environmentFilter">
+					<option value="">All Environments</option>
+					<option value="dev">Development</option>
+					<option value="staging">Staging</option>
+					<option value="prod">Production</option>
+				</select>
+			</div>
+			<button id="refreshBtn" class="refresh-btn">🔄 Refresh</button>
+		</div>
+
+		<div class="stats">
+			<div class="stat-card">
+				<h3 id="totalServices">0</h3>
+				<p>Total Services</p>
+			</div>
+			<div class="stat-card">
+				<h3 id="activeServices">0</h3>
+				<p>Active Services</p>
+			</div>
+			<div class="stat-card">
+				<h3 id="environments">0</h3>
+				<p>Environments</p>
+			</div>
+		</div>
+
+		<div class="services-grid" id="servicesGrid">
+			<!-- Services will be populated here -->
+		</div>
+
+		<div class="loading" id="loading">
+			<div class="spinner"></div>
+			<p>Loading services...</p>
+		</div>
+
+		<div class="error" id="error" style="display: none">
+			<p>❌ Failed to load services. Please check your connection.</p>
+			<button id="retryBtn">Retry</button>
+		</div>
+	</div>
+
+	<script src="app.js"></script>
+</body>
+
+</html>

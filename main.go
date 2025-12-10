@@ -17,7 +17,7 @@ import (
 )
 
 func main() {
-	mongoURI := "mongodb://localhost:27017"
+	mongoURI := "mongodb://localhost:27017/?directConnection=true"
 	dbName := "service_registry"
 	collName := "registry"
 	heartbeatTTL := 30 * time.Second
@@ -35,6 +35,13 @@ func main() {
 
 	// Gin setup
 	r := gin.Default()
+
+	// Serve static UI files
+	r.Static("/ui", "./ui")
+
+	// WebSocket endpoint for real-time updates
+	r.GET("/ws", handlers.HandleWebSocket)
+
 	handlers.SetupRoutes(r, repo, heartbeatTTL)
 
 	// Cleanup goroutine
