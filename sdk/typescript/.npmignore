@@ -1,0 +1,29 @@
+# Development files
+src/
+__tests__/
+*.test.ts
+*.test.js
+
+# Config files
+tsconfig.json
+jest.config.js
+.eslintrc.json
+
+# Node modules and lock files
+node_modules/
+package-lock.json
+
+# Build artifacts (keep dist/)
+*.tsbuildinfo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*

@@ -18,9 +18,12 @@
 	],
 	"author": "spidey52",
 	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/spidey52/service-discovery.git",
+		"url": "git+https://github.com/spidey52/service-discovery.git",
 		"directory": "sdk/typescript"
 	},
 	"dependencies": {
