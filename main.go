@@ -36,13 +36,14 @@ func main() {
 	// Gin setup
 	r := gin.Default()
 
-	// Serve static UI files
-	r.Static("/ui", "./ui")
-
 	// WebSocket endpoint for real-time updates
 	r.GET("/ws", handlers.HandleWebSocket)
 
 	handlers.SetupRoutes(r, repo, heartbeatTTL)
+
+	// Serve SPA
+	spaHandler := handlers.NewSPAHandler("./ui")
+	r.NoRoute(spaHandler.Handle)
 
 	// Cleanup goroutine
 	stop := make(chan struct{})
