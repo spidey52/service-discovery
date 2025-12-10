@@ -1,0 +1,42 @@
+{
+	"name": "@spidey52/service-discovery-sdk",
+	"version": "1.0.0",
+	"description": "TypeScript client SDK for Service Discovery",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsc",
+		"test": "jest",
+		"lint": "eslint src/**/*.ts",
+		"prepublishOnly": "npm run build"
+	},
+	"keywords": [
+		"service-discovery",
+		"microservices",
+		"typescript",
+		"sdk"
+	],
+	"author": "spidey52",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/spidey52/service-discovery.git",
+		"directory": "sdk/typescript"
+	},
+	"dependencies": {
+		"axios": "^1.6.0"
+	},
+	"devDependencies": {
+		"@types/jest": "^29.5.0",
+		"@types/node": "^20.0.0",
+		"@typescript-eslint/eslint-plugin": "^6.0.0",
+		"@typescript-eslint/parser": "^6.0.0",
+		"eslint": "^8.0.0",
+		"jest": "^29.0.0",
+		"ts-jest": "^29.0.0",
+		"typescript": "^5.0.0"
+	},
+	"engines": {
+		"node": ">=16.0.0"
+	}
+}

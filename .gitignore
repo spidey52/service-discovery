@@ -1,4 +1,8 @@
 .env
 
-bin
+
 node_modules
+
+### Build directories
+bin
+dist
